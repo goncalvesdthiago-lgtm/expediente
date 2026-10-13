@@ -84,27 +84,29 @@ try {
     await dorme(900); await virar('down')
     await fimDaCena(); await dorme(900)
   } else {
-  // roteiro: três fofocas, com um pedido de rotina no meio
-  await dorme(2400)                                  // tela de abertura
-  await tecla('Enter'); await dorme(700)
-  await cena('salarios')                             // Van Gogh conta do Leo Dias para o GitHub
-  await dorme(1200); await virar('down')
-  await fimDaCena(); await dorme(500)
-  await cena('preferidos')                           // Jirinha e Googlinho: o Thiago tem preferido; cafezinho
-  await andar('left', 3); await andar('up', 1)       // enquanto isso, Kiro pede uma rotina ao Einstein
+  // roteiro: o Kiro anda pelo escritório e pede uma rotina, enquanto três fofocas acontecem em volta
+  const esperaEinstein = () => js(`new Promise((ok) => { const t = setInterval(() => { if (__jogo.m.npcs.einstein.missao?.fase === 'preso') { clearInterval(t); ok() } }, 50); setTimeout(() => { clearInterval(t); ok() }, 14000) })`)
+  await dorme(2200)                                  // tela de abertura
+  await tecla('Enter'); await dorme(500)
+  await andar('right', 3); await andar('left', 6)    // passeio pelo tapete
+  await cena('leoPreferidos')                        // Leo Dias: "o Thiago tem preferido"
+  await andar('up', 1)                               // ...bem na hora em que o Kiro pede algo ao Einstein
   await dorme(2300)
   await tecla('Enter'); await dorme(1900)
   await tecla('Enter'); await dorme(2600)
   await tecla('Enter'); await dorme(300)
-  await andar('down', 1); await andar('right', 5); await virar('up')
-  await js(`new Promise((ok) => { const t = setInterval(() => { if (__jogo.m.npcs.einstein.missao?.fase === 'preso') { clearInterval(t); ok() } }, 50); setTimeout(() => { clearInterval(t); ok() }, 14000) })`)
-  await dorme(2600); await tecla('Enter')            // "Pronto! ... terminou sem erro."
-  await dorme(2600); await tecla('Enter')            // fim do log
-  await virar('up')
-  await fimDaCena(); await dorme(500)
-  await cena('pressa')                               // Leo Dias e Drill: o Thiago quer tudo pra ontem
-  await dorme(1000); await virar('down')
-  await fimDaCena(); await dorme(1800)
+  await fimDaCena()
+  await cena('leoFofoqueiro')                        // Jirinha: "o Leo Dias sabe o salário de todo mundo"
+  await andar('down', 1); await andar('right', 4); await virar('up')
+  await esperaEinstein()
+  await dorme(2600); await tecla('Enter')            // Einstein entrega: "terminou sem erro"
+  await dorme(2600); await tecla('Enter')
+  await fimDaCena(); await dorme(300)
+  await cena('presencial')                           // GitHub e Drill: escritório pra nós, casa pra ele; cafezinho
+  await andar('left', 5); await virar('down')
+  await dorme(5200)
+  await andar('right', 3); await virar('up')
+  await fimDaCena(); await dorme(1600)
   }
 
   gravando = false

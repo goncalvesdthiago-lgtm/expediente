@@ -130,4 +130,28 @@ export const FOFOCAS = {
     { fala: ['leodias', 'Relaxa. Já espalhei.'], para: 'drill-agent', t: 2.8 },
     { voltar: ['leodias'], virar: ['drill-agent', 'up'] },
   ],
+  // As três de baixo formam o roteiro do vídeo (gravar-demo.mjs).
+  leoPreferidos: [
+    { ir: [['leodias', 'vangogh']] },
+    { fala: ['leodias', 'O Thiago tem preferido. Tudo ele pede pro Einstein.'], para: 'vangogh' },
+    { fala: ['vangogh', 'Olha lá. Tá pedindo pra ele de novo.'], para: 'leodias', t: 3.2 },
+    { fala: ['leodias', 'Não falei? Preferido.'], para: 'vangogh', t: 2.6 },
+    { voltar: ['leodias'], virar: ['vangogh', 'up'] },
+  ],
+  leoFofoqueiro: [
+    { ir: [['atlassian', 'googlinho']] },
+    { fala: ['atlassian', 'O Leo Dias é fofoqueiro. Sabe o salário de todo mundo aqui!'], para: 'googlinho' },
+    { fala: ['googlinho', 'Até o meu?!'], para: 'atlassian', t: 2.2 },
+    { fala: ['atlassian', 'O seu ele contou primeiro.'], para: 'googlinho', t: 2.8 },
+    { voltar: ['atlassian'], virar: ['googlinho', 'up'] },
+  ],
+  presencial: [
+    { ir: [['github', 'drill-agent']] },
+    { fala: ['github', 'E o Thiago? Botou a gente no escritório e tá trabalhando de casa.'], para: 'drill-agent', t: 4 },
+    { fala: ['drill-agent', 'Presencial pra nós, home office pra ele.'], para: 'github', t: 3.2 },
+    { fala: ['github', 'Bora um cafezinho pra esquecer?'], para: 'drill-agent', t: 2.6 },
+    { ir: [['github', [17, 3], 'left'], ['drill-agent', [16, 3], 'right']] },
+    { fala: ['drill-agent', 'Pelo menos o café daqui é de graça.'], t: 3 },
+    { voltar: ['github', 'drill-agent'] },
+  ],
 }

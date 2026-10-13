@@ -1,0 +1,6 @@
+node_modules
+.cache
+dist
+dados
+# configuração de quem usa (agentes e rotinas reais); o exemplo é o que vai para o repositório
+escritorio.config.json

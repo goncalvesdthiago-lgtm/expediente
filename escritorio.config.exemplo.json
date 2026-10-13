@@ -1,0 +1,227 @@
+{
+  "_leia": "Configuração única do escritório. Até 8 agentes; o primeiro é o coordenador (dono das sessões sem agente definido). 'palavras' atribuem uma ação a um agente; 'apelidos' são outros nomes do mesmo agente nas sessões; 'rotinas' aparecem no menu (label = LaunchAgent no macOS); 'prefixoDasRotinas' é o começo do nome dos LaunchAgents que entram no quadro de avisos; 'perfilKiro' diz se o id existe como agente no kiro-cli. Com executarDeVerdade em false o jogo só simula.",
+  "nome": "EXPEDIENTE",
+  "subtitulo": "MEUS AGENTES DE IA DENTRO DE UM JOGO 8-BIT",
+  "pastaDosAgentes": "~/.kiro",
+  "prefixoDasRotinas": "com.exemplo.",
+  "executarDeVerdade": false,
+  "agentes": [
+    {
+      "id": "kiro-vas",
+      "nome": "Kiro",
+      "cargo": "Coordenador",
+      "palavras": [],
+      "apelidos": [
+        "kiro_default",
+        "None"
+      ],
+      "perfilKiro": true,
+      "visual": {
+        "cabelo": "#503018",
+        "chapeu": "#2848d8",
+        "camisa": "#4878f8"
+      },
+      "rotinas": [
+        {
+          "rotulo": "Checar a saúde das rotinas",
+          "label": "com.exemplo.saude-das-rotinas"
+        },
+        {
+          "rotulo": "Limpar tarefas antigas",
+          "label": "com.exemplo.limpar-tarefas"
+        }
+      ]
+    },
+    {
+      "id": "einstein",
+      "nome": "Einstein",
+      "cargo": "Analista de dados",
+      "palavras": [
+        "psql",
+        "postgres",
+        "trino",
+        "hive",
+        "select ",
+        " sql",
+        "query",
+        "cohort",
+        "consulta"
+      ],
+      "apelidos": [],
+      "perfilKiro": true,
+      "visual": {
+        "cabelo": "#f0f0f8",
+        "camisa": "#f0f0f8",
+        "detalhe": "#8858e0"
+      },
+      "rotinas": [
+        {
+          "rotulo": "Atualizar painel de vendas",
+          "label": "com.exemplo.painel-de-vendas"
+        },
+        {
+          "rotulo": "Relatório de retenção",
+          "label": "com.exemplo.relatorio-de-retencao"
+        }
+      ]
+    },
+    {
+      "id": "atlassian",
+      "nome": "Jirinha",
+      "cargo": "Jira e Confluence",
+      "palavras": [
+        "jira",
+        "confluence",
+        "issue",
+        "épico",
+        "epico",
+        "jirinha"
+      ],
+      "apelidos": [
+        "jirinha"
+      ],
+      "perfilKiro": true,
+      "visual": {
+        "cabelo": "#684020",
+        "camisa": "#2090e0",
+        "detalhe": "#f8f8f8"
+      },
+      "rotinas": [
+        {
+          "rotulo": "Resumo da sprint",
+          "label": "com.exemplo.resumo-da-sprint"
+        }
+      ]
+    },
+    {
+      "id": "googlinho",
+      "nome": "Googlinho",
+      "cargo": "Google Workspace",
+      "palavras": [
+        "google",
+        "sheets",
+        "gmail",
+        "planilha",
+        "slides",
+        "drive"
+      ],
+      "apelidos": [],
+      "perfilKiro": true,
+      "visual": {
+        "cabelo": "#383840",
+        "camisa": "#f0a820",
+        "detalhe": "#4878f8"
+      },
+      "rotinas": [
+        {
+          "rotulo": "Organizar e-mails",
+          "label": "com.exemplo.organizar-emails"
+        },
+        {
+          "rotulo": "Backup das planilhas",
+          "label": "com.exemplo.backup-planilhas"
+        }
+      ]
+    },
+    {
+      "id": "leodias",
+      "nome": "Leo Dias",
+      "cargo": "Rotinas e avisos",
+      "palavras": [
+        "slack",
+        "launchctl",
+        "launchagent",
+        "rotina",
+        "relatório",
+        "relatorio",
+        "plist"
+      ],
+      "apelidos": [],
+      "perfilKiro": true,
+      "visual": {
+        "cabelo": "#502810",
+        "camisa": "#e04040",
+        "detalhe": "#f8d870"
+      },
+      "rotinas": [
+        {
+          "rotulo": "Resumo diário para o time",
+          "label": "com.exemplo.resumo-diario"
+        }
+      ]
+    },
+    {
+      "id": "vangogh",
+      "nome": "Van Gogh",
+      "cargo": "Designer",
+      "palavras": [
+        "figma",
+        "screenshot",
+        "layout",
+        "print de tela",
+        "browser_",
+        "css"
+      ],
+      "apelidos": [],
+      "perfilKiro": true,
+      "visual": {
+        "cabelo": "#e87820",
+        "chapeu": "#283878",
+        "barba": "#e87820",
+        "camisa": "#e850a0"
+      },
+      "rotinas": []
+    },
+    {
+      "id": "github",
+      "nome": "GitHub",
+      "cargo": "Repositórios",
+      "palavras": [
+        "github",
+        "git ",
+        "gh ",
+        "commit",
+        "pull request",
+        "branch"
+      ],
+      "apelidos": [],
+      "perfilKiro": true,
+      "visual": {
+        "cabelo": "#181820",
+        "chapeu": "#606878",
+        "camisa": "#606878"
+      },
+      "rotinas": [
+        {
+          "rotulo": "Backup dos repositórios",
+          "label": "com.exemplo.backup-repositorios"
+        }
+      ]
+    },
+    {
+      "id": "drill-agent",
+      "nome": "Drill",
+      "cargo": "Pesquisa",
+      "palavras": [
+        "web_search",
+        "web_fetch",
+        "pesquis"
+      ],
+      "apelidos": [
+        "drill"
+      ],
+      "perfilKiro": false,
+      "visual": {
+        "cabelo": "#806040",
+        "chapeu": "#f8d030",
+        "camisa": "#20a870"
+      },
+      "rotinas": [
+        {
+          "rotulo": "Reindexar a base de pesquisa",
+          "label": "com.exemplo.reindexar-pesquisa"
+        }
+      ]
+    }
+  ]
+}

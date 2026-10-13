@@ -1,0 +1,179 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: #101018;
+  overflow: hidden;
+}
+
+/* --e é a escala inteira do jogo (pixels de tela por pixel de arte) */
+.jogo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: "Jersey 10", monospace;
+  color: #202028;
+  user-select: none;
+}
+
+.moldura {
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 0 0 4px #303040, 0 0 0 8px #181820, 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+.moldura canvas {
+  display: block;
+  image-rendering: pixelated;
+  border-radius: 6px;
+}
+
+/* caixas de texto e menu ficam embaixo; sobem quando o jogador está na parte de baixo */
+.camada {
+  position: absolute;
+  left: calc(var(--e) * 4px);
+  right: calc(var(--e) * 4px);
+  bottom: calc(var(--e) * 4px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: calc(var(--e) * 3px);
+}
+.camada-topo {
+  bottom: auto;
+  top: calc(var(--e) * 4px);
+  flex-direction: column-reverse;
+}
+
+.caixa {
+  background: #f8f8f8;
+  border: calc(var(--e) * 2px) solid #202028;
+  border-radius: calc(var(--e) * 4px);
+  box-shadow: inset 0 0 0 calc(var(--e) * 1px) #f8f8f8, inset 0 0 0 calc(var(--e) * 2px) #a8b0c8;
+  padding: calc(var(--e) * 6px) calc(var(--e) * 8px);
+  font-size: calc(var(--e) * 9px);
+  line-height: 1.15;
+}
+.quem {
+  color: #2848d8;
+  margin-bottom: calc(var(--e) * 2px);
+}
+
+.fala {
+  align-self: stretch;
+  min-height: calc(var(--e) * 44px);
+  box-sizing: border-box;
+  cursor: pointer;
+  word-break: break-word;
+}
+.seta {
+  margin-left: calc(var(--e) * 3px);
+  color: #e04040;
+  animation: quica 0.7s steps(2) infinite;
+  display: inline-block;
+}
+@keyframes quica { 50% { transform: translateY(calc(var(--e) * 1px)); } }
+
+.fala input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: calc(var(--e) * 3px);
+  padding: calc(var(--e) * 3px);
+  border: calc(var(--e) * 1px) solid #202028;
+  border-radius: calc(var(--e) * 2px);
+  background: #fff;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+.fala input::placeholder { color: #a8b0c8; }
+
+.menu { max-width: 78%; }
+.opcao {
+  display: flex;
+  gap: calc(var(--e) * 2px);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.opcao span { width: calc(var(--e) * 6px); flex: none; color: #e04040; }
+.opcao-sel { color: #2848d8; }
+
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  font-size: 17px;
+  color: #8890a8;
+}
+.modo { color: #101018; background: #f8d870; padding: 3px 6px; border-radius: 3px; }
+.modo-real { background: #e04040; color: #fff; }
+
+/* painel grande: quadro de avisos, telões e resposta completa de uma análise */
+.painel {
+  position: absolute;
+  inset: calc(var(--e) * 6px);
+  display: flex;
+  flex-direction: column;
+}
+.rolagem {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: calc(var(--e) * 2px);
+  scrollbar-width: thin;
+}
+.linha {
+  display: flex;
+  gap: calc(var(--e) * 4px);
+  padding: calc(var(--e) * 1.5px) 0;
+  border-bottom: calc(var(--e) * 0.5px) dashed #c8d0e0;
+  word-break: break-word;
+}
+.marca {
+  flex: none;
+  min-width: calc(var(--e) * 46px);
+  text-align: center;
+  color: #f8f8f8;
+  background: #606878;
+  border-radius: calc(var(--e) * 1px);
+  padding: 0 calc(var(--e) * 2px);
+  align-self: flex-start;
+}
+.marca-ok { background: #20a060; }
+.marca-falha { background: #e04040; }
+.marca-espera { background: #d08818; }
+.marca-off { background: #98a0b0; }
+.dica {
+  margin-top: calc(var(--e) * 3px);
+  color: #8890a8;
+  text-align: right;
+}
+
+/* tela de abertura (só no modo demonstração) */
+.abertura {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--e) * 8px);
+  background: rgba(16, 16, 24, 0.78);
+  border-radius: 6px;
+  color: #f8f8f8;
+  text-align: center;
+}
+.abertura-nome {
+  font-size: calc(var(--e) * 30px);
+  color: #f8d870;
+  text-shadow: calc(var(--e) * 1px) calc(var(--e) * 1px) 0 #e04040, calc(var(--e) * 2px) calc(var(--e) * 2px) 0 #202028;
+}
+.abertura-sub { font-size: calc(var(--e) * 10px); color: #b8d0f8; }
+.abertura-tecla {
+  margin-top: calc(var(--e) * 10px);
+  font-size: calc(var(--e) * 10px);
+  animation: pisca 1s steps(2) infinite;
+}
+@keyframes pisca { 50% { opacity: 0; } }
